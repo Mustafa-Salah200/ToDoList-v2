@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+:root {
+    --main-color: #FF9800;
+}
+body{
+    background-color: #123;
+    height: 100vh;
+}
+.container {
+    width: 400px;
+    margin: 30px auto;
+}
+.container h1 {
+    color: #fff;
+}
+
+.container input {
+    padding: 0 15px;
+    height: 100%;
+    outline: none;
+    width: calc(100% - 80px);
+}
+.container .input {
+    width: 100%;
+    height: 40px;
+}
+.container .input button{
+    background-color: #9C27B0;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 15px;
+    height: 100%;
+    width: 80px;
+}
+.container .input button:hover {
+    outline: 2px solid #fff;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+.container .error {
+    color: red;
+    display: block;
+    margin: 4px;
+    font-weight: bold;
+}
+
+.container .toDo {
+    display: flex;
+}
+.container .toDo div {
+    margin-top: 10px;
+    background-color: #222;
+    width: 50%;
+    padding: 15px 10px;
+    color: #fff;
+    border-bottom: 1px solid var(--main-color);
+    cursor: pointer;
+}
+.container .toDo .active {
+    background-color: var(--main-color);
+    color: #000;
+}
+.container p {
+    color: #fff;
+    margin: 10px 0;
+}
+
+.container .tasks {
+    width: 100%;
+    height: 300px;
+    margin: 10px 0;
+    scrollbar-color: #123;
+    overflow-y: scroll;
+}
+.container .tasks .task {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #6e94b938;
+    margin: 5px 0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container .tasks .task span {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.container .tasks .task span:hover {
+    background-color: #123;
+}
+.container .task .delete {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
+    height: 100%;
+    transition: 0.4s ease-in-out;
+    svg {
+        width: 20px;
+    }
+}
+.container .task:hover .delete{
+    right: 0;
+}
+
+.container .clear {
+    width: 100%;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+.container .clear:hover {
+    outline: 3px solid #664545;
+}
+@media (max-width: 500px) {
+    .container {
+        width: 350px;
+    }
+}
