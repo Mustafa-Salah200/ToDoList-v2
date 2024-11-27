@@ -7,6 +7,7 @@ type PROVIDER = {
     AddTask: (newTodo: TASK) => void,
     removeTask: (id: number) => void,
     SetCompleted: (newTask: TASK) => void,
+    RemoveAll: (name: "pending" | "completed") => void,
 }
 
 export const ToDoProvider = createContext<PROVIDER | null>(null)
@@ -42,6 +43,13 @@ const ContextToDo = ({children}:{children :ReactNode}) => {
         }
         setTasks(tasks.filter(e => e.id!==newTask.id ))
     }
+    const RemoveAll = (name : "pending" | "completed")=>{
+        if(name === "pending"){
+            setTasks([])
+        } else {
+            setCompleted([])
+        }
+    }
     useEffect(()=>{
         localStorage.setItem('tasks', JSON.stringify(tasks))
     },[tasks])
@@ -49,7 +57,7 @@ const ContextToDo = ({children}:{children :ReactNode}) => {
         localStorage.setItem('completed', JSON.stringify(completed))
     },[completed])
     return (
-    <ToDoProvider.Provider value={{ tasks,completed,AddTask,removeTask,SetCompleted }}>
+    <ToDoProvider.Provider value={{ tasks,completed,AddTask,removeTask,SetCompleted , RemoveAll}}>
         {children}
     </ToDoProvider.Provider>
     )

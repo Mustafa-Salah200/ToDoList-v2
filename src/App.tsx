@@ -7,8 +7,7 @@ const App = () => {
   const [options,setOptions] = useState<'pending' | 'completed'>('pending')
   const {tasks} = useToDoContext()
   const {completed} = useToDoContext()
-
-  // const [Tasks,setTasks] = useState(tasks)
+  const {RemoveAll} = useToDoContext()
 
   const Pending = ()=>{
     setOptions('pending')
@@ -32,7 +31,7 @@ const App = () => {
       </div>
         <Tasks Tasks={options === 'pending' ? tasks : completed} />
         
-        <button className="clear">CLEAR ALL</button>
+        <button className="clear" onClick={()=> RemoveAll(options)}>CLEAR ALL</button>
     </div>
   )
 }
